@@ -62,6 +62,14 @@ public class LinkedListImpl <E> implements MyList <E>{
 
     @Override
     public E remove(Object o) {
+        LinkedListNode <E> currNode = this.head;
+        while(currNode != null) {
+            if (currNode.next.item == o) {
+                currNode.next = currNode.next.next;
+                return currNode.item;
+            }
+            currNode = currNode.next;
+        }
         return null;
     }
 
